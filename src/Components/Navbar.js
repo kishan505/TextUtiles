@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Navbar() {
+export default function Navbar(props) {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
             <a className="navbar-brand" href="/">
             TextUtiles
             </a>
@@ -32,7 +32,7 @@ export default function Navbar() {
                 </a>
                 </li>
             </ul>
-            <form className="form-inline my-2 my-lg-0">
+            {/* <form className="form-inline my-2 my-lg-0">
                 <input
                 className="form-control mr-sm-2"
                 type="search"
@@ -45,7 +45,15 @@ export default function Navbar() {
                 >
                 Search
                 </button>
-            </form>
+            </form> */}
+            {/* <div className={`form-check form-switch text-${props.mode==='light'? 'Dark' : 'light'}`}>
+                <input className="form-check-input" onClick={props.toogleMode} type="checkbox" id="flexSwitchCheckDefault" />
+                <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable DarkMode </label>
+            </div> */}
+            <div className={`form-check form-switch text-${props.mode==='light'? 'Dark' : 'light'}`}>
+                <input className="form-check-input" onClick={props.toogleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                <label className="form-check-label" for="flexSwitchCheckDefault">Enable DarkMode </label>
+            </div>
             </div>
         </nav>
     </div>
