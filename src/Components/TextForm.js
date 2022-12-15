@@ -7,15 +7,18 @@ export default function TextForm(props) {
 
   const handleUpClick = () => {
     setText(text.toUpperCase())
+    props.showAlert("Convert To UpperCase", "success")
   }
 
   const handleloClick = () => {
     setText(text.toLowerCase())
+    props.showAlert("Convert To LowerCase", "success")
   }
 
   const handleCopyClick = () => {
     document.getElementById("myBox").select();
     copy(text)
+    props.showAlert("Copy to text", "info")
   }
 
   const handleOnChange = (event) => {
@@ -29,9 +32,9 @@ export default function TextForm(props) {
       <div className="mb-3">
           <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor: props.mode==='dark'? 'grey': 'white', color: props.mode=== 'dark' ? 'white' : 'black'}}></textarea>
       </div>
-      <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert To Uppercase</button>
-      <button className= "btn btn-primary mx-2" onClick={handleloClick}> Convert to Lowercase</button>
-      <button className= "btn btn-primary mx-2" onClick={handleCopyClick}> Copy To ClickBoard </button>
+      <button className="btn btn-info mx-2 my-2" onClick={handleUpClick}>Convert To Uppercase</button>
+      <button className= "btn btn-info mx-2 my-2" onClick={handleloClick}> Convert to Lowercase</button>
+      <button className= "btn btn-info mx-2" onClick={handleCopyClick}> Copy To ClickBoard </button>
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
 
