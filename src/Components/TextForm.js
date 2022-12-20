@@ -39,7 +39,7 @@ export default function TextForm(props) {
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
 
       <h2>Your Text Summery</h2>
-      <p>{text === '' ? 0 : text.split(" ").length} Of Words -- {text.length} Of Character </p>
+      <p>{text === '' ? 0 : text.match(/\S+/g).length} Of Words -- {text.length} Of Character </p>
       <p>{text === '' ? 0 : 0.008 * text.split(" ").length} Of Minute To Read </p>
 
       <h2>Priview</h2>
